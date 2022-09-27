@@ -14,7 +14,6 @@ CSYE6225 Network Structure and Cloud Computing Assignment
 - IDE: Vscode
 - Version Control: Git
 - Test Tool: Postman
-- Development Environment: Ubuntu
 
 ## Build Instructions
 Clone the repository into a local repository
