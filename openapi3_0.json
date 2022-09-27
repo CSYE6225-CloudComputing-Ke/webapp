@@ -1,0 +1,130 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "User API",
+    "description": "User Demo API",
+    "contact": {
+      "name": "WebApp",
+      "url": "http://webapp-ke.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://devapi.com"
+    },
+    {
+      "url": "http://prodapi.com"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "description": "user resource",
+      "get": {
+        "description": "Operation to Fetch User",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Amy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "201": {
+          "description": "Successfully Added"
+        },
+        "description": "Add a new User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            }
+          }
+        },
+        "responses": null
+      }
+    },
+    "/user{id}": {
+      "description": "Get User based on Path parameter",
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      },
+      "responses": {
+        "200": {
+          "description": "Successfully Responses with Path",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/users"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "UserID": {
+            "type": "integer"
+          },
+          "UserName": {
+            "type": "string",
+            "example": "David"
+          },
+          "UserRemarks": {
+            "type": null,
+            "example": "Student"
+          }
+        }
+      },
+      "users": {
+        "type": "array",
+        "items": null,
+        "properties": null,
+        "UserID": {
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "string",
+          "example": "David"
+        },
+        "UserRemarks": {
+          "type": null,
+          "example": "Student"
+        }
+      }
+    }
+  }
+}
