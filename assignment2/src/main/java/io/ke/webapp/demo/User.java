@@ -16,6 +16,7 @@ public class User {
 
 
     private String password;
+    private String id;
 
 //    private String token;
 
@@ -87,6 +88,14 @@ public class User {
     public void setToken(String token) {
         this.token = token;
 
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }
 
