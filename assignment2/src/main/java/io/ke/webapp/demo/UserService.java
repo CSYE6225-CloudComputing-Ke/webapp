@@ -12,19 +12,15 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletResponse;
-//import javax.validation.constraints.Email;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
-//import java.util.Date;
 import java.util.Base64.Decoder;
-//import java.util.Base64.Encoder;
 
-//@Controller    // This means that this class is a Controller
-//@RequestMapping(path="/demo") // This means URL's sta
+
 @RestController
 public class UserService {
     @Autowired // This means to get the bean called userRepository
@@ -84,6 +80,13 @@ public class UserService {
     Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
+    }
+
+    @GetMapping("/getuser/{id}")
+    //public @ResponseBody
+    public User GetUser(@PathVariable String id){
+        return userRepository.findById(id);
+
     }
 
 
