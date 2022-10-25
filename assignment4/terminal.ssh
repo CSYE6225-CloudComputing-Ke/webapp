@@ -1,0 +1,18 @@
+# If MySQL is not installed on your virtual machine then install the MySQL server using the following command.
+
+sudo apt install mysql-server
+
+# We have successfully installed MySQL server on our EC2  instance, to check if the MySQL server is running or not, verify using the following command.
+
+sudo systemctl status mysql
+
+
+
+#Reload tomcat service
+sudo systemctl daemon-reload
+
+#Restart/Start tomcat service
+sudo systemctl start tomcat
+
+#Check tomcat service status
+systemctl status tomcat.service
