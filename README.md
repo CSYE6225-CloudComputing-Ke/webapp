@@ -26,7 +26,6 @@ The server will be run at http://localhost:8080/welcome, test can be done using 
 
 
 Server: server side as RESTful architectural style. 
-exit
 
 
 
