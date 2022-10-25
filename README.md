@@ -25,7 +25,7 @@ Use Maven to build:
 The server will be run at http://localhost:8080/welcome, test can be done using Postman.
 
 
-Server: server side as RESTful architectural style. 
+Server: server side as RESTful architectural style. n
  
 
 
