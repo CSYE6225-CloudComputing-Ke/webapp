@@ -31,8 +31,13 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Maven Clean
+     run: mvn clean
 
-    - name: tomcat deploy
-      run: curl -v -u tomcat:tomcat -T /Users/ke/Documents/2022-fall/csye6225/A4/target/demo-0.0.1-SNAPSHOT.war 
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy 
+      
+      main
       env:
         GITHUB_TOKEN: ${{ github.token }}
