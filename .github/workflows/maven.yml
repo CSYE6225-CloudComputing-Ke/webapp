@@ -42,19 +42,24 @@ jobs:
   
     - name: Install awscli
       run: sudo pip install awscli
+      
+    - name: Build with Maven
+      run: 
+         cd CloudWebApp
+         mvn -B package --file pom.xml  
 
     
-    - name: Scripts
-      run:
-            cd CloudWebApp
-            pwd
-            ls -al
-            mvn clean package -DskipTests=true
-            cd target/
-            ls -al
-            cd ../
-            pwd
-            ls -al
+   # - name: Scripts
+   #   run:
+    #        cd CloudWebApp
+     #       pwd
+      #      ls -al
+       #     mvn clean package -DskipTests=true
+        #    cd target/
+         #   ls -al
+          #  cd ../
+           # pwd
+            #ls -al
       
     - name: Zip Artifact
       run: |
