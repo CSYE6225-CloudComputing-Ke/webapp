@@ -42,24 +42,17 @@ jobs:
       
     - name: Build WAR
       run :
-        cd CloudWebApp/
-        ./mvnw clean install
-        cd target
+        cd CloudWebApp
+        pwd
         ls -al
-        cd ../..
+        mvn clean package
+        cd target/
+        ls -al
+        cd ../
+        pwd
+        ls -al
 
     
-   # - name: Scripts
-   #   run:
-    #        cd CloudWebApp
-     #       pwd
-      #      ls -al
-       #     mvn clean package -DskipTests=true
-        #    cd target/
-         #   ls -al
-          #  cd ../
-           # pwd
-            #ls -al
       
     - name: Zip Artifact
       run: |
