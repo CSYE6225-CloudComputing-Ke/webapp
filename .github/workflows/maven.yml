@@ -55,28 +55,23 @@ jobs:
     
       
     - name: Zip Artifact
-      run: |
-            pwd
-            mkdir codedeploy_artifact
-            cp infrastructure/aws/codedeploy/*.yml .
-            cp infrastructure/aws/codedeploy/*.sh .
-            zip -r csye6225-web-app-${CIRCLE_BUILD_NUM}.zip CloudWebApp/target//demo-0.0.1-SNAPSHOT.war *.yml *.sh
-            ls -al
-            mv csye6225-web-app-${CIRCLE_BUILD_NUM}.zip codedeploy_artifact/
-            ls -al
-            pwd
-            cd ..
-            pwd
-            ls -al
+      run : |
+          pwd
+          mkdir codedeploy_artifact
+          cp infrastructure/aws/codedeploy/*.yml .
+          cp infrastructure/aws/codedeploy/*.sh .
+          zip -r csye6225-web-app-${CIRCLE_BUILD_NUM}.zip CloudWebApp/target//demo-0.0.1-SNAPSHOT.war *.yml *.sh
+          ls -al
+          mv csye6225-web-app-${CIRCLE_BUILD_NUM}.zip codedeploy_artifact/
+          ls -al
+          pwd
+          cd ..
+          pwd
+          ls -al
 
 
     - name : Install pip
-      run:
-          
-            sudo apt-get install python3
-            python3 --version
-            sudo apt install python3-pip
-            pip3 --version  
+      run:  sudo apt-get install python3
             
              
     - name: Install awscli
@@ -84,13 +79,13 @@ jobs:
       
             
     - name: deploy to s3
-      run: |
+      run : |
             aws configure list
             aws s3 sync codedeploy_artifact s3://code-deploy.csye6225-spring2019-${BUCKETNAME}.me --region us-east-1
 
       
     - name: deploy to ec2
-      run: |
+      run : |
             aws deploy create-deployment --application-name csye6225-webapp --deployment-config-name CodeDeployDefault.AllAtOnce --region us-east-1 --deployment-group-name csye6225-webapp-deployment --description "csye6225 create" --s3-location bucket=code-deploy.csye6225-spring2019-${BUCKETNAME}.me,bundleType=zip,key=csye6225-web-app-${CIRCLE_BUILD_NUM}.zip
    
     - name: Build with Maven
