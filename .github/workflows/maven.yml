@@ -37,8 +37,8 @@ jobs:
     - name: Install packages
       run: sudo apt-get update && sudo apt-get install wget zip unzip -y
       
-    - name: Install pip
-      run: sudo apt-get install python-pip -y
+   # - name: Install pip
+    #  run: sudo apt-get install python-pip -y
   
     - name: Install awscli
       run: sudo pip install awscli
