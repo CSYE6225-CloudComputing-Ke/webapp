@@ -103,10 +103,10 @@
         }
       }
     },
-    "CirlceCICodeDeploy": {
+    "CircleCICodeDeploy": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
-        "ManagedPolicyName": "CirlceCI-Code-Deploy",
+        "ManagedPolicyName": "CircleCI-Code-Deploy",
         "Users": [
           {
             "Ref": "circleci"
@@ -225,7 +225,7 @@
         }
       }
     },
-    "circleciec2ami": {
+    "CircleCI2ami": {
       "Type": "AWS::IAM::ManagedPolicy",
       "Properties": {
         "ManagedPolicyName": "circleci-ec2-ami",
@@ -311,23 +311,23 @@
         "Name": "CircleCIUploadToS3"
       }
     },
-    "CirlceCICodeDeploy": {
-      "Description": "CirlceCICodeDeploy Policy",
+    "CircleCICodeDeploy": {
+      "Description": "CircleCICodeDeploy Policy",
       "Value": {
-        "Ref": "CirlceCICodeDeploy"
+        "Ref": "CircleCICodeDeploy"
       },
       "Export": {
-        "Name": "CirlceCICodeDeploy"
+        "Name": "CircleCICodeDeploy"
 
       }
     },
-    "circleciec2ami": {
-      "Description": "circleciec2ami Policy",
+    "CircleCI2ami": {
+      "Description": "CircleCI2ami Policy",
       "Value": {
-        "Ref": "circleciec2ami"
+        "Ref": "CircleCI2ami"
       },
       "Export": {
-        "Name": "circleciec2ami"
+        "Name": "CircleCI2ami"
 
       }
     },
