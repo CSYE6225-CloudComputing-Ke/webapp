@@ -79,6 +79,19 @@ jobs:
     - name: Install awscli
       run: sudo pip install awscli
       
+ 
+
+    - name: Download packer
+      run: |
+          wget -q https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip
+          unzip packer*.zip
+          chmod +x packer
+    - name: Validate Packer Template
+      run: ./infrastructure/aws packer build aws-ami.pkr.hcl
+
+    - name: Build AMI
+      run: ./infrastructure/aws packer build hcl
+      
             
     - name: deploy to s3
       run : |
