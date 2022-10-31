@@ -57,6 +57,8 @@ jobs:
     - name: Zip Artifact
       run : |
           pwd
+          find . -name appspec.yml
+          ls -al
           mkdir codedeploy_artifact
           cp infrastructure/aws/codedeploy/*.yml .
           cp infrastructure/aws/codedeploy/*.sh .
