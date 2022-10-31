@@ -1,4 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "codedeploy.isApplicationWorkspace": false
+    "codedeploy.isApplicationWorkspace": false,
+    "cSpell.words": [
+        "deploymentconfig"
+    ]
 }
